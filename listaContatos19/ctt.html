@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Contatos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Contatos</h1>
+
+    <h2>Novo Contato</h2>
+    <form id="contactForm">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br><br>
+        <label for="phone">Telefone:</label>
+        <input type="tel" id="phone" required><br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Contatos Cadastrados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="contactList">
+        </tbody>
+    </table>
+
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const contactList = document.getElementById("contactList");
+
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            
+            const newRow = contactList.insertRow();
+            newRow.innerHTML = `<td>${name}</td><td>${email}</td><td>${phone}</td><td><button onclick="editContact(this)">Editar</button> <button onclick="deleteContact(this)">Excluir</button></td>`;
+            
+            contactForm.reset();
+        });
+
+        function editContact(button) {
+            const row = button.parentNode.parentNode;
+            const name = row.cells[0].textContent;
+            const email = row.cells[1].textContent;
+            const phone = row.cells[2].textContent;
+            
+            document.getElementById("name").value = name;
+            document.getElementById("email").value = email;
+            document.getElementById("phone").value = phone;
+            
+            row.remove();
+        }
+
+        function deleteContact(button) {
+            const row = button.parentNode.parentNode;
+            row.remove();
+        }
+    </script>
+</body>
+</html>

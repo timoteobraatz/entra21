@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1
+    { 
+         text-align: center;
+         font-family:'Lucida Sans';
+         padding: auto;
+         width: calc(100% - 20px) ;
+         padding: 10px;
+         background-color:  rgb(49, 49, 49); 
+         color: rgb(255, 255, 255)
+         
+    }
+    body
+    {
+    background-color:  rgb(146, 224, 220);;
+    }
+    div
+    {
+        text-align: center;
+        font-family:'Lucida Sans';
+        background-color:  rgb(49, 49, 49); 
+         color: rgb(255, 255, 255)
+
+    }
+
+
+    div
+    {
+        padding: 80px;
+    }
+
+    div
+    {
+        padding-bottom: 25px;
+    }
+
+    div
+    {
+        padding-bottom: 80px;
+    }
+    div
+    {
+        margin-top: 150px;
+    }
+
+</style>
+<body>
+<div>
+    
+    
+    <h1>Verificar média</h1>
+
+    <h4>Informe abaixo as notas do aluno e sua freqência:</h4>
+    <hr>
+    <label for="nota1">Informe a primeira nota:</label>
+    <input type="number" id="nota1">
+
+    <hr>
+
+    <label for="nota2">Informe a segunda nota:</label>
+    <input type="number" id="nota2">
+
+    <hr>
+
+    <label for="nota3">Informe a terceira nota:</label>
+    <input type="number" id="nota3">
+
+    <hr>
+
+    <label for="frequencia">Informe a frequência do aluno (%):</label>
+    <input type="number" id="frequencia">
+    <hr>
+    <button onclick="CalcularMedia ()">Media</button>
+
+    <p id="resultado"></p>
+
+   
+
+<script>
+
+
+
+function CalcularMedia(){
+var nota1 = parseFloat(document.getElementById("nota1").value);
+var nota2 = parseFloat(document.getElementById("nota2").value);
+var nota3 = parseFloat(document.getElementById("nota3").value);
+var frequencia = parseFloat(document.getElementById("frequencia").value);
+
+
+
+var media = (nota1 + nota2 + nota3) /3;
+
+
+
+if(media >= 7 && frequencia >=70){
+    document.getElementById("resultado").innerHTML = "Parabéns! Você está aprovado."
+}else{
+    document.getElementById("resultado").innerHTML = "Infelizmente você não atingiu os resquisitos mínimos. Você está reprovado."
+}
+}
+</script>
+</div>
+</body>
+</html>

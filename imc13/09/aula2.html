@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>TITULO*</title>
+    </head>
+
+    <style>
+        h1
+        { 
+             text-align: center;
+             font-family:'Lucida Sans';
+             padding: auto;
+             width: calc(100% - 20px) ;
+             padding: 10px;
+             background-color:  rgb(49, 49, 49); 
+             color: rgb(255, 255, 255)
+             
+        }
+        body
+        {
+        background-color:  rgb(146, 224, 220);;
+        }
+        div
+        {
+            text-align: center;
+            font-family:'Lucida Sans';
+            background-color:  rgb(49, 49, 49); 
+             color: rgb(255, 255, 255)
+
+        }
+
+
+        div
+        {
+            padding: 80px;
+        }
+
+        div
+        {
+            padding-bottom: 25px;
+        }
+
+        div
+        {
+            padding-bottom: 80px;
+        }
+        div
+        {
+            margin-top: 150px;
+        }
+
+    </style>
+
+    <body>
+       
+
+<div>        <h1>Calculadora de IMC</h1>
+   
+
+    <h4>Informe abaixo seu peso e altura:</h4>
+    <hr>
+
+    <label for="peso">Informe seu peso:</label>
+    <input type="number" id="peso">
+
+    <hr>
+
+    <label for="altura">Informe sua altura:</label>
+    <input type="number" id="altura">
+
+    <hr>
+
+    <button onclick="calcularIMC()">VER IMC</button>
+    
+    <p id="resultadoIMC"></p>
+    
+    
+    
+    <script>
+        
+        
+        function calcularIMC(){
+            
+            var peso = parseFloat(document.getElementById("peso").value);
+            
+            var altura = parseFloat(document.getElementById("altura").value);
+            
+            
+            
+            var imc = peso / (altura*altura);
+            
+            
+            
+            if (imc < 17) {
+            document.getElementById("resultadoIMC").innerHTML ="Você está muito abaixo do peso";
+        } else if (imc >= 17 && imc <= 18.49) {
+            document.getElementById("resultadoIMC").innerHTML ="Você está abaixo do peso";
+        } else if (imc >= 18.5 && imc <= 24.99) {
+            document.getElementById("resultadoIMC").innerHTML ="Você está no peso normal";
+        } else if (imc >= 25 && imc <= 29.99) {
+            document.getElementById("resultadoIMC").innerHTML ="Você está acima do peso";
+        } else if (imc >= 30 && imc <= 34.99) {
+            document.getElementById("resultadoIMC").innerHTML ="Obesidade grau I";
+        } else if (imc >= 35  && imc <= 39.99) {
+            document.getElementById("resultadoIMC").innerHTML ="Obesidade grau II (Severa)";
+        } else {
+            document.getElementById("resultadoIMC").innerHTML ="Obesidade grau III (Obesidade mórbida)";
+        }
+    }
+</script>
+</div>
+</body>
+</html>

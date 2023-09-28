@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h1
+    { 
+         text-align: center;
+         font-family:'Lucida Sans';
+         padding: auto;
+         width: calc(100% - 20px) ;
+         padding: 10px;
+         background-color:  rgb(49, 49, 49); 
+         color: rgb(255, 255, 255)
+         
+    }
+    body
+    {
+    background-color:  rgb(146, 224, 220);;
+    }
+    div
+    {
+        text-align: center;
+        font-family:'Lucida Sans';
+        background-color:  rgb(49, 49, 49); 
+         color: rgb(255, 255, 255)
+
+    }
+
+
+    div
+    {
+        padding: 80px;
+    }
+
+    div
+    {
+        padding-bottom: 25px;
+    }
+
+    div
+    {
+        padding-bottom: 80px;
+    }
+    div
+    {
+        margin-top: 150px;
+    }
+
+</style>
+<body>
+    <div>
+    <h1>Cálculo de aumento</h1>
+
+    
+
+    <label for="cargo">Informe o cargo do funcionário (Gerente/Supervisor/Operador/Outro):</label>
+    <input type="text" id="cargo">
+
+    <hr>
+
+    <label for="salario">Informe seu sálario atual:</label>
+    <input type="number" id="salario">
+
+    <button onclick="calcularAumento()">Calcular</button>
+
+    <div id="resultado"></div>
+
+
+
+<script>
+
+
+
+
+function calcularAumento(){
+    var cargo = document.getElementById('cargo').value.toLowerCase();
+    var salario = parseFloat(document.getElementById('salario').value);
+
+    var aumentoPercentual;
+    
+    switch (cargo.toLowerCase()){
+        case 'gerente':
+        aumentoPercentual = 0.05;
+            break;
+        case 'supervisor':
+        aumentoPercentual = 0.08;
+            break;
+        case 'operador':
+        aumentoPercentual = 0.09;
+            break;
+        default:
+        aumentoPercentual = 0.1;
+    }
+
+    
+    var aumento = salario * aumentoPercentual;
+    var novoSalario = salario + aumento;
+
+    
+    const resultadoDiv = document.getElementById('resultado');
+    resultadoDiv.innerHTML = `
+    <p>Salário atual: R$ ${salario.toFixed(2)}</p>
+    <p>Aumento: R$ ${aumento.toFixed(2)}</p>
+    <p>Novo salário: R$ ${novoSalario.toFixed(2)}</p>
+    `;
+}
+</script>
+</div>
+</body>
+</html>
