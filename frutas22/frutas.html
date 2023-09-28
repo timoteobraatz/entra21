@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Frutas</title>
+</head>
+<body>
+    <h1>Visualizador de Frutas</h1>
+    <label for="fruitInput">Digite uma fruta:</label>
+    <input type="text" id="fruitInput">
+    <button onclick="addFruit()">Adicionar</button>
+    
+    <h2>Frutas:</h2>
+    <div id="fruits"></div>
+    
+    <h2>Visualização:</h2>
+    <label for="viewType">Escolha o tipo de visualização:</label>
+    <select id="viewType" onchange="updateView()">
+        <option value="paragraph">Parágrafo</option>
+        <option value="list">Lista</option>
+        <option value="table">Tabela</option>
+    </select>
+    
+    <div id="output"></div>
+    
+    <script>
+        const fruits = [];
+
+        function addFruit() {
+            const fruitInput = document.getElementById("fruitInput");
+            const fruit = fruitInput.value;
+            fruits.push(fruit);
+            fruitInput.value = "";
+            updateView();
+        }
+
+        function updateView() {
+            const viewType = document.getElementById("viewType").value;
+            const output = document.getElementById("output");
+            
+            let content = "";
+
+            if (viewType === "paragraph") {
+                content = fruits.join(" ");
+            } else if (viewType === "list") {
+                content = "<ul>";
+                for (const fruit of fruits) {
+                    content += `<li>${fruit}</li>`;
+                }
+                content += "</ul>";
+            } else if (viewType === "table") {
+                content = "<table><tr><th>Frutas</th></tr>";
+                for (const fruit of fruits) {
+                    content += `<tr><td>${fruit}</td></tr>`;
+                }
+                content += "</table>";
+            }
+
+            output.innerHTML = content;
+        }
+    </script>
+</body>
+</html>
