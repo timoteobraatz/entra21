@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Categoria</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="link_header" href="cad.html">Listar</a>
+        <a class="link_header" href="login.html">Login</a>
+        <a class="link_header" href="produto.html">Cadastrar</a>
+        <a class="link_header" href="categoria.html">Cadastrar Produtos</a>
+      </nav>
+ </header>
+    <section>
+        <div id="cad_main_div">
+            <div>
+              <h2 style="text-align: center; font-size: 42px;">Cadastro</h2>
+
+                <form>  
+
+                  <div class="input_div_login">
+                    <label>Nome</label>
+                    <input class="input_login" type="text" name="name" id="Nome" placeholder="Nome">
+                  </div>
+
+                  <br>
+                
+                  <div class="input_div_login_button">
+                    <button onclick="cadastrarC()" id="btn_cad">Cadastrar</button>
+                  </div>
+                </form>
+
+                
+            </div>
+        </div>
+    </section>
+	<script src="Script/categoria.js"></script>
+  </body>
+</html>

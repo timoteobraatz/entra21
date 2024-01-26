@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Produto</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="link_header" href="cad.html">Listar</a>
+        <a class="link_header" href="login.html">Login</a>
+        <a class="link_header" href="produto.html">Cadastrar</a>
+        <a class="link_header" href="categoria.html">Cadastrar Produtos</a>
+      </nav>
+ </header>
+
+    <section>
+        <div id="cad_main_div">
+            <div>
+              <h2 style="text-align: center; font-size: 42px;">Cadastro</h2>
+
+                <form>
+                  <div class="input_div_login">
+                    <label>descricao</label>
+                    <input class="input_login" type="text" name="name" id="descricao" placeholder="descricao">
+                  </div>
+
+                  <br>
+                  
+                    
+                  <div class="input_div_login">
+                    <label>Preço</label>
+                    <input class="input_login" type="text" name="name" id="preco" placeholder="preco">
+                  </div>
+
+                  <br>
+
+                  <div class="input_div_login">
+                    <label>Estoque</label>
+                    <input class="input_login" type="text" name="name" id="estoque" placeholder="estoque">
+                  </div>
+
+                  <br>
+
+                  
+                  <div class="input_div_login">
+                    <label>Categoria</label>
+                    <input class="input_login" type="text" name="name" id="categoria" placeholder="categoria">
+                  </div>
+
+                  <br>
+                    
+                
+
+                  <div class="input_div_login_button">
+                    <button onclick="cadastrarP()" id="btn_cad">Cadastrar</button>
+                  </div>
+                </form>
+
+                
+            </div>
+        </div>
+      </div>
+      <br>
+      <div class="input_div_login_button">
+        <button onclick="carregar()" id="btn_cad">CARREGAR</button>
+
+        <table hidden id="tabela">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Descrição</th>
+                    <th>Estoque</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            </tbody>
+        </table>
+      </div>
+        
+    </section>
+	<script src="Script/Produto.Js"></script>
+  </body>
+</html>

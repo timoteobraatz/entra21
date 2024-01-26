@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api</title>
+</head>
+<body>
+    <h1>Teste FETCH</h1>
+    <a href="categorias.html">Categorias</a>
+    <br>
+    <button onclick="carregar()">CARREGAR</button>
+
+    <table hidden id="tabela">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Estoque</th>
+                <th>Preço</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <h1>CRIAR PRODUTO</h1>
+    <form action="x">
+        <label for="descricao">Descrição</label>
+        <input type="text" id="desc">
+        <br>
+        <label for="estoque">Estoque</label>
+        <input type="number" id="estoque">
+        <br>
+        <label for="preco">Preço</label>
+        <input type="number" id="preco">
+        <br>
+        <label for="categoria">Categoria ID</label>
+        <input type="number" id="categoria">
+    </form>
+    <button onclick="inserir()">INSERIR</button>
+</body>
+
+<script>
+
+    async function inserir() {
+        let obj = {
+            descricao: document.getElementById("desc").value,
+            estoque: document.getElementById("estoque").value,
+            preco: document.getElementById("preco").value,
+            categoriaId: document.getElementById("categoria").value
+        }
+
+        if (obj != "") {
+            await fetch('http://localhost:5171/api/Produtos', 
+            {
+                method: "POST",
+                headers: {'Content-Type' : 'application/json'},
+                body: JSON.stringify(obj)
+            })
+            carregar()
+            
+        }
+    }
+
+    function carregar() {
+        produto = ''
+        tabela = document.getElementsByTagName("tbody")[0]
+        tabela.innerHTML = ''
+        fetch('http://localhost:5171/api/Produtos')
+        .then(data => {
+            return data.json();
+        })
+        .then(post => {
+            post.forEach(element => {
+                produto = `<tr>
+                    <td>${element.id}</td>
+                    <td>${element.descricao}</td>
+                    <td>${element.estoque}</td>
+                    <td>${element.preco}</td>
+                    <td>${JSON.stringify(element.categoria)}</td>
+                    </tr>`
+                tabela.innerHTML += produto
+            
+            });
+        });   
+        let table = document.getElementById("tabela")
+        table.removeAttribute("hidden")
+    }
+</script>
+
+</html>
